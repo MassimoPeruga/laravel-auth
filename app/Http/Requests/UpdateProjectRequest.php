@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateProjectRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class UpdateProjectRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,23 @@ class UpdateProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|unique:projects|max:50',
+            'repository' => 'nullable|max:45',
+            'repo_url' => 'nullable|url',
+            'is_public' => 'nullable|boolean',
+            'assignment' => 'nullable',
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'Il campo Nome è obbligatorio.',
+            'name.unique' => 'Il campo Nome deve essere unico.',
+            'name.max' => 'Il campo Nome non può superare i :max caratteri.',
+            'repository.max' => 'Il campo Repository non può superare i :max caratteri.',
+            'repo_url.url' => 'Il campo Link della Repository deve essere un URL valido.',
+            'is_public' => 'Il valore del campo Pubblica è errato.',
         ];
     }
 }

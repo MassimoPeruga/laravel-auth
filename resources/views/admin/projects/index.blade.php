@@ -44,7 +44,7 @@
                                 class="btn btn-info btn-sm">
                                 Maggiori Dettagli
                             </a>
-                            <a href="{{ route('admin.projects.update', $project) }}" type="button"
+                            <a href="{{ route('admin.projects.edit', $project) }}" type="button"
                                 class="btn btn-warning btn-sm">
                                 Modifica
                             </a>
