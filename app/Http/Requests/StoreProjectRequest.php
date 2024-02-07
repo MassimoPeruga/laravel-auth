@@ -26,6 +26,7 @@ class StoreProjectRequest extends FormRequest
             'repository' => 'nullable|max:45',
             'repo_url' => 'nullable|url',
             'is_public' => 'nullable|boolean',
+            'assignment' => 'nullable',
         ];
     }
 
