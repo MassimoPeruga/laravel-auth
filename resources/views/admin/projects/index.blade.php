@@ -7,7 +7,7 @@
                 <tr>
                     <th scope="col" class="col">Nome</th>
                     <th scope="col" class="col-3">Repository</th>
-                    <th scope="col" class="col-3">Pubblica/Privata</th>
+                    <th scope="col" class="col-3">Tipo</th>
                 </tr>
             </thead>
             <tbody>
