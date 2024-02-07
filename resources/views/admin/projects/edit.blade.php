@@ -58,8 +58,9 @@
                 @enderror
             </div>
 
-            <div class="col-12 text-center">
-                <button type="submit" class="btn btn-primary">Modifica questo progetto</button>
+            <div class="col-12 text-end">
+                <button type="submit" class="btn btn-primary">Applica le modifiche</button>
+                @include('shared.modal')
             </div>
         </form>
         <div class="mt-3">

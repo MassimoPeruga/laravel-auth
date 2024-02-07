@@ -37,8 +37,8 @@ class StoreProjectRequest extends FormRequest
             'name.unique' => 'Il campo Nome deve essere unico.',
             'name.max' => 'Il campo Nome non può superare i :max caratteri.',
             'repository.max' => 'Il campo Repository non può superare i :max caratteri.',
-            'repo_url.url' => 'Il campo Link della Repository deve essere un URL valido.',
-            'is_public' => 'Il valore del campo Pubblica è errato.',
+            'repo_url.url' => 'Il campo Link alla Repository deve essere un URL valido.',
+            'is_public' => 'Il valore del campo Tipo è errato.',
         ];
     }
 }

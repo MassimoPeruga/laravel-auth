@@ -39,15 +39,18 @@
                                 Privata
                             @endif
                         </td>
-                        <td class="d-flex justify-content-around">
-                            <a href="{{ route('admin.projects.show', $project) }}" type="button"
-                                class="btn btn-info btn-sm">
-                                Maggiori Dettagli
-                            </a>
-                            <a href="{{ route('admin.projects.edit', $project) }}" type="button"
-                                class="btn btn-warning btn-sm">
-                                Modifica
-                            </a>
+                        <td>
+                            <div class="d-flex justify-content-around">
+                                <a href="{{ route('admin.projects.show', $project) }}" type="button"
+                                    class="btn btn-info btn-sm">
+                                    Maggiori Dettagli
+                                </a>
+                                <a href="{{ route('admin.projects.edit', $project) }}" type="button"
+                                    class="btn btn-warning btn-sm">
+                                    Modifica
+                                </a>
+                                @include('shared.modal')
+                            </div>
                         </td>
                     </tr>
                 @endforeach
