@@ -60,14 +60,13 @@
 
             <div class="col-12 text-end">
                 <button type="submit" class="btn btn-primary">Applica le modifiche</button>
-                @include('shared.modal')
             </div>
         </form>
-        <div class="mt-3">
-            <span>Oppure </span>
+        <div class="mt-3 d-flex justify-content-between">
             <a href="{{ route('admin.projects.index') }}" type="button" class="btn btn-info align-self-center ms-2">
                 Torna alla tabella principale
             </a>
+            @include('shared.modal')
         </div>
     </div>
 @endsection

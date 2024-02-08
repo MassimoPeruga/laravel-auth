@@ -23,7 +23,8 @@ class UpdateProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|unique:projects|max:50',
+            // 'name' => 'required|unique:projects|max:50',
+            'name' => ['required', Rule::unique('project')->ignore($this->project), 'max:50'],
             'repository' => 'nullable|max:45',
             'repo_url' => 'nullable|url',
             'is_public' => 'nullable|boolean',
