@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container pt-5">
+    <div class="container py-4">
         @include('shared.toast')
         <div class="row">
             <div class="col-12">
