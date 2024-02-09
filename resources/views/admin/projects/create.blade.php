@@ -10,13 +10,13 @@
                 <label for="Titolo" class="form-label">Nome</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="Titolo" name="name"
                     required value="{{ old('name') }}">
-                @include('error', ['field' => 'name'])
+                @include('shared.error', ['field' => 'name'])
             </div>
             <div class="col-6">
                 <label for="Serie" class="form-label">Repository</label>
                 <input type="text" class="form-control @error('repository') is-invalid @enderror" id="Serie"
                     name="repository" value="{{ old('repository') }}">
-                @include('error', ['field' => 'repository'])
+                @include('shared.error', ['field' => 'repository'])
             </div>
 
             <div class="col-6">
@@ -30,14 +30,14 @@
                         <option value="0">Privata</option>
                     @endif
                 </select>
-                @include('error', ['field' => 'is_public'])
+                @include('shared.error', ['field' => 'is_public'])
             </div>
 
             <div class="col-12">
                 <label for="immagine" class="form-label">Link alla Repository</label>
                 <input type="url" class="form-control @error('repo_url') is-invalid @enderror" id="immagine"
                     name="repo_url" value="{{ old('repo_url') }}">
-                @include('error', ['field' => 'repo_url'])
+                @include('shared.error', ['field' => 'repo_url'])
             </div>
             <div class="col-12">
                 <label for="Descrizione" class="form-label">Assegnazione</label>
@@ -45,7 +45,7 @@
                     name="assignment">
                     {{ old('assignment') }}
                 </textarea>
-                @include('error', ['field' => 'assignment'])
+                @include('shared.error', ['field' => 'assignment'])
             </div>
 
             <div class="col-12 text-center">
