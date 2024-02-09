@@ -11,17 +11,13 @@
                 <label for="Titolo" class="form-label">Nome</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="Titolo" name="name"
                     required value="{{ old('name', $project['name']) }}">
-                @error('name')
-                    <div class="alert alert-danger mt-2">{{ $message }}</div>
-                @enderror
+                @include('error', ['field' => 'name'])
             </div>
             <div class="col-6">
                 <label for="Serie" class="form-label">Repository</label>
                 <input type="text" class="form-control @error('repository') is-invalid @enderror" id="Serie"
                     name="repository" value="{{ old('repository', $project['repository']) }}">
-                @error('repository')
-                    <div class="alert alert-danger mt-2">{{ $message }}</div>
-                @enderror
+                @include('error', ['field' => 'repository'])
             </div>
 
             <div class="col-6">
@@ -34,18 +30,14 @@
                         Privata
                     </option>
                 </select>
-                @error('is_public')
-                    <div class="alert alert-danger mt-2">{{ $message }}</div>
-                @enderror
+                @include('error', ['field' => 'is_public'])
             </div>
 
             <div class="col-12">
                 <label for="immagine" class="form-label">Link alla Repository</label>
                 <input type="url" class="form-control @error('repo_url') is-invalid @enderror" id="immagine"
                     name="repo_url" value="{{ old('repo_url', $project['repo_url']) }}">
-                @error('repo_url')
-                    <div class="alert alert-danger mt-2">{{ $message }}</div>
-                @enderror
+                @include('error', ['field' => 'repo_url'])
             </div>
             <div class="col-12">
                 <label for="Descrizione" class="form-label">Assegnazione</label>
@@ -53,9 +45,7 @@
                     name="assignment">
                     {{ old('assignment', $project['assignment']) }}
                 </textarea>
-                @error('assignment')
-                    <div class="alert alert-danger mt-2">{{ $message }}</div>
-                @enderror
+                @include('error', ['field' => 'assignment'])
             </div>
 
             <div class="col-12 text-end">

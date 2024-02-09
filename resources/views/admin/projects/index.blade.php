@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container pt-5">
+        @include('shared.toast')
         <div class="row">
             <div class="col-12">
                 <h2>I tuoi progetti</h2>

@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container pt-5">
+        @include('shared.toast')
         <div class="row">
             <div class="col-10">
                 <div class="card text-center">
