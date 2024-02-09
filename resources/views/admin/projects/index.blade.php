@@ -13,49 +13,65 @@
                 </a>
             </div>
         </div>
-        <table class="table table-bordered table-striped table-info">
-            <thead>
-                <tr>
-                    <th scope="col" class="col-4">Nome</th>
-                    <th scope="col" class="col-2">Repository</th>
-                    <th scope="col" class="col-1">Tipo</th>
-                    <th scope="col" class="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($projects as $project)
+        <div class="bg-info-subtle rounded py-3">
+            <table class="table table-borderless table-striped table-info align-middle m-0">
+                <thead>
                     <tr>
-                        <td>
-                            <h5>{{ $project['name'] }}</h5>
-                        </td>
-                        <td>
-                            <a href="{{ $project['repo_url'] }}">
-                                {{ $project['repository'] }}
-                            </a>
-                        </td>
-                        <td>
-                            @if ($project['is_public'])
-                                Pubblica
-                            @else
-                                Privata
-                            @endif
-                        </td>
-                        <td>
-                            <div class="d-flex justify-content-around">
-                                <a href="{{ route('admin.projects.show', $project) }}" type="button"
-                                    class="btn btn-info btn-sm">
-                                    Maggiori Dettagli
-                                </a>
-                                <a href="{{ route('admin.projects.edit', $project) }}" type="button"
-                                    class="btn btn-warning btn-sm">
-                                    Modifica
-                                </a>
-                                @include('shared.modal')
-                            </div>
-                        </td>
+                        <th scope="col" class="col-4">
+                            <span class="p-2">
+                                Nome
+                            </span>
+                        </th>
+                        <th scope="col" class="col-3">
+                            <span class="p-2">
+                                Repository
+                            </span>
+                        </th>
+                        <th scope="col" class="col-1">
+                            <span class="p-2">
+                                Tipo
+                            </span>
+                        </th>
+                        <th scope="col" class="col-4"></th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach ($projects as $project)
+                        <tr>
+                            <td>
+                                <h5 class="m-2">{{ $project['name'] }}</h5>
+                            </td>
+                            <td>
+                                <a href="{{ $project['repo_url'] }}" class="mx-2 text-dark">
+                                    {{ $project['repository'] }}
+                                </a>
+                            </td>
+                            <td>
+                                <span class="p-2">
+                                    @if ($project['is_public'])
+                                        Pubblica
+                                    @else
+                                        Privata
+                                    @endif
+                                </span>
+                            </td>
+                            <td>
+                                <div class="text-center p-2">
+                                    <a href="{{ route('admin.projects.show', $project) }}" type="button"
+                                        class="btn btn-info btn-sm">
+                                        Maggiori Dettagli
+                                    </a>
+                                    <a href="{{ route('admin.projects.edit', $project) }}" type="button"
+                                        class="btn btn-warning btn-sm mx-2">
+                                        Modifica
+                                    </a>
+                                    @include('shared.modal', ['modalClass' => 'btn-sm'])
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 @endsection

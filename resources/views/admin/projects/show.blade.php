@@ -5,32 +5,30 @@
         @include('shared.toast')
         <div class="row">
             <div class="col-10">
-                <div class="card text-center">
-                    <h3 class="card-header">
-                        {{ $project['name'] }}
-                    </h3>
-                    <div class="card-body">
-                        <div class="row pb-3 border-bottom">
-                            <div class="col">
-                                <h5 class="card-title">
-                                    <a href="{{ $project['repo_url'] }}">
-                                        {{ $project['repository'] }}
-                                    </a>
-                                </h5>
-                            </div>
-                            <div class="col">
-                                @if ($project['is_public'])
-                                    <span class="badge text-bg-success">Pubblica</span>
-                                @else
-                                    <span class="badge text-bg-secondary">Privata</span>
-                                @endif
-                            </div>
+                <div class="card text-bg-dark">
+                    <div class="card-header border-0 pb-0 d-flex">
+                        <h2 class="me-auto pt-3">{{ $project['name'] }}</h2>
+                        <div class="text-end">
+                            <h5 class="card-title d-inline-block">
+                                <a href="{{ $project['repo_url'] }}" class="text-light">
+                                    {{ $project['repository'] }}
+                                </a>
+                            </h5>
+                            @if ($project['is_public'])
+                                <span class="badge text-bg-success">Pubblica</span>
+                            @else
+                                <span class="badge text-bg-secondary">Privata</span>
+                            @endif
                         </div>
-                        <p class="card-text pt-3 fs-5">
+                    </div>
+                    <div class="card-body pt-0">
+                        <hr>
+                        <p class="card-text pt-3 fs-5 border-0 text-start">
                             {{ $project['assignment'] }}
                         </p>
+                        <hr>
                     </div>
-                    <div class="card-footer text-body-secondary text-end">
+                    <div class="card-footer text-light text-opacity-75 text-end  border-0">
                         Ultimo aggiornamento: {{ $project['updated_at'] }}
                     </div>
                 </div>

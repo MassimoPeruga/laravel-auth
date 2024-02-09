@@ -2,7 +2,16 @@
 
 @section('content')
     <div class="container pt-5">
-        <h2 class="mb-3">Aggiungi un nuvo progetto</h2>
+        <div class="d-flex justify-content-between">
+            <h2 class="mb-3">Aggiungi un nuvo progetto</h2>
+            <div>
+                <span>Oppure </span>
+                <a href="{{ route('admin.projects.index') }}" type="button" class="btn btn-info align-self-center ms-2">
+                    Torna alla tabella principale
+                </a>
+            </div>
+        </div>
+        <hr>
         <form class="row g-3" action="{{ route('admin.projects.store') }}" method="POST">
             @csrf
 
@@ -41,22 +50,16 @@
             </div>
             <div class="col-12">
                 <label for="Descrizione" class="form-label">Assegnazione</label>
-                <textarea class="form-control @error('assignment') is-invalid @enderror" id="Descrizione" rows="3"
+                <textarea class="form-control @error('assignment') is-invalid @enderror" id="Descrizione" rows="5"
                     name="assignment">
                     {{ old('assignment') }}
                 </textarea>
                 @include('shared.error', ['field' => 'assignment'])
             </div>
 
-            <div class="col-12 text-center">
-                <button type="submit" class="btn btn-primary">Aggiungi un nuovo progetto</button>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Aggiungi ai progetti</button>
             </div>
         </form>
-        <div class="mt-3">
-            <span>Oppure </span>
-            <a href="{{ route('admin.projects.index') }}" type="button" class="btn btn-info align-self-center ms-2">
-                Torna alla tabella principale
-            </a>
-        </div>
     </div>
 @endsection

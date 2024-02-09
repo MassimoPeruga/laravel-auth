@@ -8,18 +8,18 @@
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop-{{ $project->id }}" data-bs-backdrop="static" data-bs-keyboard="false"
     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content text-bg-dark">
             <div class="modal-header">
-                <h3 class="modal-title fs-5 text-start" id="staticBackdropLabel">
+                <h2 class="modal-title fs-5 text-start" id="staticBackdropLabel">
                     Vuoi davvero cancellare {{ $project['name'] }}?
-                </h3>
+                </h2>
             </div>
-            <div class="modal-body text-danger">
-                <h6>
+            <div class="modal-body text-danger text-center">
+                <h4>
                     <span class="text-uppercase">Attenzione!</span>
                     <span>Questa azione è irreversibile.</span>
-                </h6>
+                </h4>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
