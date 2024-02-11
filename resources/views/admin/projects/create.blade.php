@@ -12,7 +12,7 @@
             </div>
         </div>
         <hr>
-        <form class="row g-3" action="{{ route('admin.projects.store') }}" method="POST">
+        <form class="row g-3" action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="col-12>
@@ -28,7 +28,7 @@
                 @include('shared.error', ['field' => 'repository'])
             </div>
 
-            <div class="col-6">
+            <div class="col-2">
                 <label for="Tipo" class="form-label">Tipo</label>
                 <select id="Tipo" class="form-select @error('is_public') is-invalid @enderror" name="is_public">
                     @if (old('is_public') === 0)
@@ -40,6 +40,13 @@
                     @endif
                 </select>
                 @include('shared.error', ['field' => 'is_public'])
+            </div>
+
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Immagine del progetto</label>
+                    <input class="form-control" type="file" id="formFile" name="img">
+                </div>
             </div>
 
             <div class="col-12">

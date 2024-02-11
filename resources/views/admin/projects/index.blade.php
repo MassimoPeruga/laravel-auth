@@ -39,7 +39,11 @@
                     @foreach ($projects as $project)
                         <tr>
                             <td>
-                                <h5 class="m-2">{{ $project['name'] }}</h5>
+                                <h5 class="m-2">{{ $project['name'] }}
+                                    @if ($project->img)
+                                        <i class="fa-solid fa-image"></i>
+                                    @endif
+                                </h5>
                             </td>
                             <td>
                                 <a href="{{ $project['repo_url'] }}" class="mx-2 text-dark">

@@ -27,6 +27,7 @@ class StoreProjectRequest extends FormRequest
             'repo_url' => 'nullable|url',
             'is_public' => 'nullable|boolean',
             'assignment' => 'nullable',
+            'img' => 'nullable|image|max:10000',
         ];
     }
 
@@ -39,6 +40,8 @@ class StoreProjectRequest extends FormRequest
             'repository.max' => 'Il campo Repository non può superare i :max caratteri.',
             'repo_url.url' => 'Il campo Link alla Repository deve essere un URL valido.',
             'is_public' => 'Il valore del campo Tipo è errato.',
+            'img.image' => 'Il campo Immagine non è valido.',
+            'img.max' => "L'immagine caricata non può superare i :max KB.",
         ];
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ProjectController extends Controller
@@ -37,6 +38,9 @@ class ProjectController extends Controller
 
         $new_project->fill($data);
         $new_project->slug = Str::slug($data['name']);
+        if ($new_project->img) {
+            $new_project->img = Storage::put('uploads', $data['img']);
+        }
 
         $new_project->save();
         return redirect()->route('admin.projects.index')->with('message', "Progetto $new_project->name aggiunto correttamente");
@@ -66,6 +70,10 @@ class ProjectController extends Controller
         $data = $request->validated();
 
         $project->slug = Str::of($data['name'])->slug('-');
+        if (isset($data['img']) && $data['img'] != $project->img) {
+            Storage::delete($project->img);
+            $project->img = Storage::put('uploads', $data['img']);
+        }
         $project->update($data);
 
         return redirect()->route('admin.projects.show', $project)->with('message', "Progetto $project->name modificato correttamente");
@@ -77,6 +85,9 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         $project_name = $project->name;
+        if ($project->img) {
+            Storage::delete($project->img);
+        }
         $project->delete();
         return redirect()->route('admin.projects.index')->with('message', "Progetto $project_name cancellato correttamente");
     }

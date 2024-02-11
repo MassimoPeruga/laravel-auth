@@ -3,9 +3,14 @@
 @section('content')
     <div class="container pt-5">
         @include('shared.toast')
-        <div class="row">
-            <div class="col-10">
-                <div class="card text-bg-dark">
+        <div class="card text-bg-dark">
+            <div class="row g-0">
+                @if ($project->img)
+                    <div class="col-md-4">
+                        <img src="{{ asset('storage/' . $project->img) }}" class="img-fluid rounded-start" alt="...">
+                    </div>
+                @endif
+                <div class=" {{ $project->img ? 'col-md-8' : 'col' }}">
                     <div class="card-header border-0 pb-0 d-flex">
                         <h2 class="me-auto pt-3">{{ $project['name'] }}</h2>
                         <div class="text-end">
@@ -33,23 +38,24 @@
                     </div>
                 </div>
             </div>
-            <div class="col-2">
-                <div class="row h-100 text-center">
-                    <div class="col-12 h-75">
-                        <a href="{{ route('admin.projects.edit', $project) }}" type="button"
-                            class="btn btn-warning h-100 w-100 d-flex align-items-center justify-content-center fw-bold fs-4">
-                            Modifica
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        @include('shared.modal', ['modalClass' => 'w-100 h-100'])
-                    </div>
+        </div>
+
+        <div class="d-flex mt-3">
+            <div class="me-auto">
+                <a href="{{ route('admin.projects.index') }}" type="button" class="btn btn-info align-self-center">
+                    Torna alla tabella principale
+                </a>
+            </div>
+            <div>
+                <a href="{{ route('admin.projects.edit', $project) }}" type="button" class="btn btn-warning me-2">
+                    Modifica
+                </a>
+            </div>
+            <div>
+                <div class="col-12">
+                    @include('shared.modal')
                 </div>
             </div>
         </div>
-
-        <a href="{{ route('admin.projects.index') }}" type="button" class="btn btn-info align-self-center mt-3">
-            Torna alla tabella principale
-        </a>
     </div>
 @endsection
